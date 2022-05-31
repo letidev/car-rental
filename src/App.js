@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
+import Login from "./components/login";
 import Register from "./components/register";
-import { NonAuthenticatedGuard } from "./utils/guards";
+import { AuthenticatedGuard, NonAuthenticatedGuard } from "./utils/guards";
 
 function App() {
   return (
@@ -13,6 +14,24 @@ function App() {
             <NonAuthenticatedGuard>
               <Register />
             </NonAuthenticatedGuard>
+          }
+        ></Route>
+        <Route
+          exact
+          path="/login"
+          element={
+            <NonAuthenticatedGuard>
+              <Login />
+            </NonAuthenticatedGuard>
+          }
+        ></Route>
+        <Route
+          exact
+          path="/"
+          element={
+            <AuthenticatedGuard>
+              <div>the homepage</div>
+            </AuthenticatedGuard>
           }
         ></Route>
       </Routes>

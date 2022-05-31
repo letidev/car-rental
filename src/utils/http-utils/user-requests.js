@@ -3,6 +3,10 @@ import axios from "axios";
 const apiUrl = "http://localhost:3005/users";
 const loggedUserKey = "loggedUser";
 
+export const getLoggedUser = () => {
+  return JSON.parse(localStorage.getItem(loggedUserKey));
+};
+
 export const logout = async () => {
   localStorage.removeItem(loggedUserKey);
 };
@@ -35,4 +39,18 @@ export const registerUser = async (user) => {
   }
 
   return saveUser(user);
+};
+
+export const login = async (user) => {
+  const allUsers = (await getAllUsers()).data;
+
+  const foundUser = allUsers.find(
+    (u) => u.email === user.email && u.password === user.password
+  );
+
+  if (!foundUser) throw new Error("Invalid username/password");
+
+  localStorage.setItem(loggedUserKey, JSON.stringify(foundUser));
+
+  return foundUser;
 };
