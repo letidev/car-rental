@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextInput = ({ name, id, label, type, placeholder }) => {
+const TextInput = ({ label, ...rest }) => {
   return (
     <div className="mb-3">
       <label
@@ -10,11 +10,8 @@ const TextInput = ({ name, id, label, type, placeholder }) => {
         {label}
       </label>
       <input
-        type={type}
-        name={name}
-        id={id}
-        className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-        placeholder={placeholder}
+        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        {...rest}
       />
     </div>
   );
