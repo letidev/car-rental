@@ -1,7 +1,12 @@
+import { Route, Routes } from "react-router-dom";
+import Register from "./components/register";
+
 function App() {
   return (
-    <div className='text-3xl font-bold underline'>
-      Car rental app
+    <div>
+      <Routes>
+        <Route exact path="/register" element={<Register />}></Route>
+      </Routes>
     </div>
   );
 }
