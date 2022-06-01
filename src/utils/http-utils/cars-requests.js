@@ -2,22 +2,22 @@ import axios from "axios";
 
 const apiUrl = "http://localhost:3005/cars";
 
-export const createCar = async (car) => {
+export const createCar = (car) => {
   return axios.post(apiUrl, car);
 };
 
-export const updateCar = async (car) => {
-  return axios.post(`${apiUrl}/${car.id}`, car);
+export const updateCar = (car) => {
+  return axios.put(`${apiUrl}/${car.id}`, car);
 };
 
-export const getCarById = async (id) => {
+export const getCarById = (id) => {
   return axios.get(`${apiUrl}/${id}`);
 };
 
-export const getAllCars = async () => {
+export const getAllCars = () => {
   return axios.get(apiUrl);
 };
 
-export const deleteCar = async (id) => {
+export const deleteCar = (id) => {
   return axios.delete(`${apiUrl}/${id}`);
 };
