@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { Header } from "./header";
 
-const MainLayout = () => {
+const MainLayout = ({ children }) => {
   return (
-    <div>MainLayout</div>
-  )
-}
+    <main>
+      <Header />
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">{children}</div>
+    </main>
+  );
+};
 
-export default MainLayout
+export default MainLayout;

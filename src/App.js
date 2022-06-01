@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { MainLayout } from "./components/layout";
 import Login from "./components/login";
 import Register from "./components/register";
 import { AuthenticatedGuard, NonAuthenticatedGuard } from "./utils/guards";
@@ -30,7 +31,7 @@ function App() {
           path="/"
           element={
             <AuthenticatedGuard>
-              <div>the homepage</div>
+              <MainLayout>the homepage</MainLayout>
             </AuthenticatedGuard>
           }
         ></Route>
