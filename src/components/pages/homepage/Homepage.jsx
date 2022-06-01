@@ -14,7 +14,7 @@ const Homepage = () => {
           <strong>Our price list:</strong>
           <br />
           <br />
-          Price per day is $20. When the rental period is:
+          When the rental period is:
           <ul className="list-disc list-inside marker:text-teal-600">
             <li>more than 3 days - 5% discount</li>
             <li>more than 5 days - 7% discount</li>
