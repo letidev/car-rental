@@ -27,6 +27,16 @@
       "numberOfSeats": "5",
       "pricePerDay": "15",
       "id": 1
+    },
+    {
+      "brand": "Toyota",
+      "model": "Corolla",
+      "buildYear": "2009",
+      "vehicleType": "economy",
+      "fuelType": "petrol",
+      "numberOfSeats": "5",
+      "pricePerDay": "6",
+      "id": 2
     }
   ],
   "rents": []
