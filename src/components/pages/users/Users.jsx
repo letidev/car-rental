@@ -32,7 +32,7 @@ const Users = () => {
       </div>
       <div className="flex flex-row flex-wrap gap-6">
         {users.map((user) => (
-          <UserCard user={user} key={user.id} handleDelete={handleDelete} />
+          <UserCard user={user} key={user.id} onClickDelete={handleDelete} />
         ))}
       </div>
     </MainLayout>
