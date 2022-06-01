@@ -57,5 +57,16 @@
       "id": 3
     }
   ],
-  "rents": []
+  "rents": [
+    {
+      "userId": 3,
+      "carId": 3,
+      "rentFrom": "2022-06-01",
+      "rentTo": "2022-06-04",
+      "pricePerDay": "20",
+      "price": 76,
+      "discount": 5,
+      "id": 1
+    }
+  ]
 }

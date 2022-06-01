@@ -3,12 +3,17 @@ import { useNavigate } from "react-router-dom";
 import { PATHS } from "../../../utils/constants";
 import { getIsAdmin } from "../../../utils/http-utils/user-requests";
 
-const CarCard = ({ car, onClickDelete }) => {
+const CarCard = ({ car, onClickDelete, onClick, selected = false }) => {
   const navigate = useNavigate();
   const isAdmin = getIsAdmin();
 
   return (
-    <div className="flex flex-col gap-3 p-5 border border-teal-400 rounded-xl w-fit">
+    <div
+      className={`flex flex-col gap-3 p-5 border border-teal-400 rounded-xl w-fit ${
+        onClick && "cursor-pointer hover:bg-gray-100"
+      } ${selected && "bg-teal-50"}`}
+      onClick={onClick}
+    >
       <div>Brand: {car.brand}</div>
       <div>Model: {car.model}</div>
       <div>Year: {car.buildYear}</div>

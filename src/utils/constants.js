@@ -8,6 +8,8 @@ export const PATHS = {
   Users: "/users",
   EditUser: "/users/edit/:id",
   EditMe: "/users/edit/me",
+  Rents: "/rents",
+  CreateRent: "/rents/create",
 };
 
 export const VehicleTypes = {

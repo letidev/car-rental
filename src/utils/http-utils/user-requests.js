@@ -1,4 +1,6 @@
 import axios from "axios";
+import { getAllRentsForUser } from "./rents-requests";
+import moment from "moment";
 
 const apiUrl = "http://localhost:3005/users";
 const loggedUserKey = "loggedUser";
@@ -68,4 +70,15 @@ export const login = async (user) => {
   sessionStorage.setItem(loggedUserKey, JSON.stringify(userWithoutPassword));
 
   return foundUser;
+};
+
+//business logic requests
+export const getIsUserVip = async (id) => {
+  const rents = (await getAllRentsForUser(id)).data;
+
+  const recentRents = rents.filter((rent) =>
+    moment().subtract(60, "days").isBefore(moment(rent.rentFrom))
+  );
+
+  return recentRents.length >= 3;
 };
