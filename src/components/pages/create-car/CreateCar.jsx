@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { CarForm } from "../../common";
 import { MainLayout } from "../../layout";
 
 const CreateCar = () => {
-  return <MainLayout adminOnly>Create a car</MainLayout>;
+  const [fields, setFields] = useState({
+    brand: "",
+    model: "",
+    buildYear: "",
+    vehicleType: "",
+    fuelType: "",
+    numberOfSeats: "",
+    pricePerDay: "",
+  });
+
+  return (
+    <MainLayout adminOnly>
+      <CarForm fields={fields} />
+    </MainLayout>
+  );
 };
 
 export default CreateCar;
