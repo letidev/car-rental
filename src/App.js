@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Cars from "./components/pages/cars";
 import CreateCar from "./components/pages/create-car";
+import { EditCar } from "./components/pages/edit-car";
 import Homepage from "./components/pages/homepage/Homepage";
 import Login from "./components/pages/login";
 import Register from "./components/pages/register";
@@ -17,6 +18,7 @@ function App() {
 
         <Route exact path={PATHS.Cars} element={<Cars />} />
         <Route path={PATHS.CreateCar} element={<CreateCar />} />
+        <Route path={PATHS.EditCar} element={<EditCar />} />
 
         <Route path="*" element={<Navigate replace to={PATHS.Home} />} />
       </Routes>

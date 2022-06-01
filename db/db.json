@@ -31,12 +31,22 @@
     {
       "brand": "Toyota",
       "model": "Corolla",
-      "buildYear": "2009",
+      "buildYear": "2010",
       "vehicleType": "economy",
       "fuelType": "petrol",
       "numberOfSeats": "5",
       "pricePerDay": "6",
       "id": 2
+    },
+    {
+      "brand": "Kia",
+      "model": "Ceed",
+      "buildYear": "2021",
+      "vehicleType": "economy",
+      "fuelType": "petrol",
+      "numberOfSeats": "5",
+      "pricePerDay": "20",
+      "id": 3
     }
   ],
   "rents": []

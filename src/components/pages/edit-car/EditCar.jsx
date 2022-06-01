@@ -1,25 +1,24 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { FuelTypes, PATHS, VehicleTypes } from "../../../utils/constants";
-import { createCar } from "../../../utils/http-utils/cars-requests";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { PATHS } from "../../../utils/constants";
+import { getCarById, updateCar } from "../../../utils/http-utils/cars-requests";
 import { CarForm } from "../../common";
 import { MainLayout } from "../../layout";
 
-const CreateCar = () => {
+const EditCar = () => {
+  let { id } = useParams();
   const navigate = useNavigate();
+  const [car, setCar] = useState({});
   const [error, setError] = useState("");
-  const [fields, setFields] = useState({
-    brand: "",
-    model: "",
-    buildYear: "",
-    vehicleType: VehicleTypes.ECONOMY,
-    fuelType: FuelTypes.PETROL,
-    numberOfSeats: "",
-    pricePerDay: "",
-  });
+
+  useEffect(() => {
+    getCarById(id)
+      .then((response) => setCar(response.data))
+      .catch((e) => setError(e.message));
+  }, [id]);
 
   const onInputChange = (e) => {
-    setFields((prev) => ({
+    setCar((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
@@ -28,7 +27,7 @@ const CreateCar = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    createCar(fields)
+    updateCar(car)
       .then(() => {
         navigate(PATHS.Cars);
       })
@@ -38,15 +37,15 @@ const CreateCar = () => {
   return (
     <MainLayout adminOnly className="mx-auto max-w-[320px]">
       <CarForm
-        fields={fields}
-        onSubmit={onSubmit}
+        fields={car}
         onInputChange={onInputChange}
         error={error}
-        heading="Create a car"
+        onSubmit={onSubmit}
+        heading="Edit car"
         ctaText="Update"
       />
     </MainLayout>
   );
 };
 
-export default CreateCar;
+export default EditCar;

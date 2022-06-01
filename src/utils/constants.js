@@ -4,6 +4,7 @@ export const PATHS = {
   Home: "/",
   Cars: "/cars",
   CreateCar: "/cars/create",
+  EditCar: "/cars/edit/:id",
 };
 
 export const VehicleTypes = {

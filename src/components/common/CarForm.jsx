@@ -2,10 +2,17 @@ import React from "react";
 import { FuelTypes, VehicleTypes } from "../../utils/constants";
 import { TextInput, RadioInput, SubmitButton } from "../common/inputs";
 
-const CarForm = ({ fields, onInputChange, onSubmit, error }) => {
+const CarForm = ({
+  fields,
+  onInputChange,
+  onSubmit,
+  error,
+  heading,
+  ctaText,
+}) => {
   return (
     <div>
-      <h3 className="mb-5 text-4xl font-semibold">Create a car</h3>
+      <h3 className="mb-5 text-4xl font-semibold">{heading}</h3>
       <form onSubmit={onSubmit} className="">
         <TextInput
           value={fields.brand}
@@ -100,7 +107,7 @@ const CarForm = ({ fields, onInputChange, onSubmit, error }) => {
           required
         />
         <div className="my-3 font-semibold text-red-500">{error}</div>
-        <SubmitButton text="Create" />
+        <SubmitButton text={ctaText} />
       </form>
     </div>
   );
