@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../utils/http-utils/user-requests";
 import TextInput from "../common/inputs/TextInput";
 import { BasicLayout } from "../layout";
@@ -65,12 +65,12 @@ const Login = () => {
       </form>
       <div className="mt-4">
         Don't have an account?&nbsp;
-        <button
-          onClick={() => navigate("/register")}
+        <Link
+          to="/register"
           className="underline cursor-pointer hover:text-indigo-600"
         >
           Sing up here!
-        </button>
+        </Link>
       </div>
     </BasicLayout>
   );
