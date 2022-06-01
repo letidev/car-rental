@@ -5,3 +5,18 @@ export const PATHS = {
   Cars: "/cars",
   CreateCar: "/cars/create",
 };
+
+export const VehicleTypes = {
+  ECONOMY: "economy",
+  ESTATE: "estate",
+  LUXURY: "luxury",
+  SUV: "SUV",
+  CARGO: "cargo",
+};
+
+export const FuelTyes = {
+  PETROL: "petrol",
+  DIESEL: "diesel",
+  HYBRID: "hybrid",
+  ELECTRIC: "electric",
+};
