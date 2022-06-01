@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { VehicleTypes } from "../../../utils/constants";
+import { FuelTypes, VehicleTypes } from "../../../utils/constants";
 import { CarForm } from "../../common";
 import { MainLayout } from "../../layout";
 
@@ -9,7 +9,7 @@ const CreateCar = () => {
     model: "",
     buildYear: "",
     vehicleType: VehicleTypes.ECONOMY,
-    fuelType: "",
+    fuelType: FuelTypes.PETROL,
     numberOfSeats: "",
     pricePerDay: "",
   });

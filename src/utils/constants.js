@@ -14,7 +14,7 @@ export const VehicleTypes = {
   CARGO: "cargo",
 };
 
-export const FuelTyes = {
+export const FuelTypes = {
   PETROL: "petrol",
   DIESEL: "diesel",
   HYBRID: "hybrid",

@@ -1,5 +1,5 @@
 import React from "react";
-import { VehicleTypes } from "../../utils/constants";
+import { FuelTypes, VehicleTypes } from "../../utils/constants";
 import { TextInput, RadioInput, SubmitButton } from "../common/inputs";
 
 const CarForm = ({ fields, onInputChange, onSubmit }) => {
@@ -31,29 +31,72 @@ const CarForm = ({ fields, onInputChange, onSubmit }) => {
         type="number"
         name="buildYear"
         id="buildYear"
-        label="Build Year"
+        label="Build year"
         placeholder="2011"
         min={1980}
         required
       />
-      <div>
-        <label className="block text-sm font-medium text-gray-700">
-          Vehicle Type
-        </label>
-        <div>
-          {Object.values(VehicleTypes).map((vt) => (
-            <RadioInput
-              name="vehicleType"
-              key={vt}
-              id={vt}
-              label={vt}
-              value={vt}
-              checked={vt === fields.vehicleType}
-              onChange={onInputChange}
-            />
-          ))}
+      <div className="flex flex-row justify-between">
+        <div className="max-w-[50%] w-fit">
+          <label className="block text-sm font-medium text-gray-700">
+            Vehicle Type
+          </label>
+          <div>
+            {Object.values(VehicleTypes).map((vt) => (
+              <RadioInput
+                name="vehicleType"
+                key={vt}
+                id={vt}
+                label={vt}
+                value={vt}
+                checked={vt === fields.vehicleType}
+                onChange={onInputChange}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="max-w-[50%] w-fit">
+          <label className="block text-sm font-medium text-gray-700">
+            Fuel Type
+          </label>
+          <div>
+            {Object.values(FuelTypes).map((ft) => (
+              <RadioInput
+                name="fuelType"
+                key={ft}
+                id={ft}
+                label={ft}
+                value={ft}
+                checked={ft === fields.fuelType}
+                onChange={onInputChange}
+              />
+            ))}
+          </div>
         </div>
       </div>
+      <TextInput
+        value={fields.numberOfSeats}
+        onChange={onInputChange}
+        type="number"
+        name="numberOfSeats"
+        id="numberOfSeats"
+        label="Number of seats"
+        placeholder="2"
+        min={2}
+        required
+      />
+      <TextInput
+        value={fields.pricePerDay}
+        onChange={onInputChange}
+        type="number"
+        name="pricePerDay"
+        id="pricePerDay"
+        label="Price per day"
+        placeholder="5"
+        min={5}
+        step={0.01}
+        required
+      />
       <SubmitButton text="Create" />
     </form>
   );
