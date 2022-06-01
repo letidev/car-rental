@@ -33,7 +33,7 @@ const Cars = () => {
       </div>
       <div className="flex flex-row flex-wrap gap-6">
         {cars.map((car) => (
-          <CarCard car={car} onClickDelete={handleDelete} />
+          <CarCard car={car} onClickDelete={handleDelete} key={car.id} />
         ))}
       </div>
     </MainLayout>

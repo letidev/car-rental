@@ -16,7 +16,11 @@ export const logout = async () => {
   localStorage.removeItem(loggedUserKey);
 };
 
-export const getAllUsers = () => {
+export const getAllUsersWithoutAdmin = () => {
+  return axios.get(`${apiUrl}?role=user`);
+};
+
+const getAllUsers = () => {
   return axios.get(apiUrl);
 };
 
@@ -29,11 +33,15 @@ export const deleteUser = (id) => {
 };
 
 export const saveUser = (user) => {
+  if (user?.role === "admin") {
+    throw new Error("Cannot edit admin account!");
+  }
+
   if (user?.id) {
     return axios.put(`${apiUrl}/${user.id}`, user);
   }
 
-  return axios.post(apiUrl, user);
+  return axios.post(apiUrl, { ...user, role: "user" });
 };
 
 export const registerUser = async (user) => {
@@ -55,7 +63,9 @@ export const login = async (user) => {
 
   if (!foundUser) throw new Error("Invalid username/password");
 
-  localStorage.setItem(loggedUserKey, JSON.stringify(foundUser));
+  const { password, ...userWithoutPassword } = foundUser;
+
+  localStorage.setItem(loggedUserKey, JSON.stringify(userWithoutPassword));
 
   return foundUser;
 };

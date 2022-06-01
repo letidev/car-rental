@@ -15,6 +15,14 @@
       "password": "password",
       "role": "user",
       "id": 2
+    },
+    {
+      "email": "sabrina@mail.com",
+      "firstName": "Sabrina",
+      "lastName": "Smith",
+      "password": "password",
+      "role": "user",
+      "id": 3
     }
   ],
   "cars": [
