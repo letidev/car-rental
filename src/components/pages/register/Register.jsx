@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { NonAuthenticatedGuard } from "../../utils/guards";
-import { registerUser } from "../../utils/http-utils/user-requests";
-import TextInput from "../common/inputs/TextInput";
-import { BasicLayout } from "../layout";
+import { NonAuthenticatedGuard } from "../../../utils/guards";
+import { registerUser } from "../../../utils/http-utils/user-requests";
+import TextInput from "../../common/inputs/TextInput";
+import { BasicLayout } from "../../layout";
 
 const Register = () => {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { MainLayout } from "./components/layout";
-import Login from "./components/login";
-import Register from "./components/register";
+import Login from "./components/pages/login";
+import Register from "./components/pages/register";
 
 function App() {
   return (
