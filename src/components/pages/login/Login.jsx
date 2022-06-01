@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { NonAuthenticatedGuard } from "../../../utils/guards";
 import { login } from "../../../utils/http-utils/user-requests";
-import { TextInput } from "../../common/inputs";
+import { SubmitButton, TextInput } from "../../common/inputs";
 import { BasicLayout } from "../../layout";
 
 const Login = () => {
@@ -58,12 +58,7 @@ const Login = () => {
             label="Password"
             required
           />
-          <button
-            type="submit"
-            className="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-teal-600 border border-transparent rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
-          >
-            Sign in
-          </button>
+          <SubmitButton text="Sign In" />
         </form>
         <div className="mt-4">
           Don't have an account?&nbsp;
