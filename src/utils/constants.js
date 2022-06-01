@@ -7,6 +7,7 @@ export const PATHS = {
   EditCar: "/cars/edit/:id",
   Users: "/users",
   EditUser: "/users/edit/:id",
+  EditMe: "/users/edit/me",
 };
 
 export const VehicleTypes = {

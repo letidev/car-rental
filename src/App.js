@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Cars from "./components/pages/cars";
 import CreateCar from "./components/pages/create-car";
 import { EditCar } from "./components/pages/edit-car";
+import { EditMe } from "./components/pages/edit-me";
 import { EditUser } from "./components/pages/edit-user";
 import { Homepage } from "./components/pages/homepage";
 import Login from "./components/pages/login";
@@ -24,6 +25,7 @@ function App() {
 
         <Route exact path={PATHS.Users} element={<Users />} />
         <Route path={PATHS.EditUser} element={<EditUser />} />
+        <Route path={PATHS.EditMe} element={<EditMe />} />
 
         <Route path="*" element={<Navigate replace to={PATHS.Home} />} />
       </Routes>

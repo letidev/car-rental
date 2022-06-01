@@ -35,7 +35,7 @@ const EditUser = () => {
   };
 
   return (
-    <MainLayout adminOnly className="mx-auto max-w-[320px]">
+    <MainLayout role="admin" className="mx-auto max-w-[320px]">
       <UserForm
         fields={user}
         onInputChange={onInputChange}

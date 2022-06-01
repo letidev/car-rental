@@ -36,7 +36,7 @@ const CreateCar = () => {
   };
 
   return (
-    <MainLayout adminOnly className="mx-auto max-w-[320px]">
+    <MainLayout role="admin" className="mx-auto max-w-[320px]">
       <CarForm
         fields={fields}
         onSubmit={onSubmit}

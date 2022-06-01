@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getIsAdmin, logout } from "../../../utils/http-utils/user-requests";
 import CarIcon from "../../../assets/car.svg";
+import { PATHS } from "../../../utils/constants";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -9,14 +10,14 @@ const Header = () => {
 
   const navigation = isAdmin
     ? [
-        { name: "Cars", href: "/cars" },
+        { name: "Cars", href: PATHS.Cars },
         { name: "All rents", href: "/rents" },
-        { name: "All users", href: "/users" },
+        { name: "All users", href: PATHS.Users },
       ]
     : [
-        { name: "Cars", href: "/cars" },
+        { name: "Cars", href: PATHS.Cars },
         { name: "My rents", href: "/rents" },
-        { name: "My Profile", href: "/my-profile" },
+        { name: "My Profile", href: PATHS.EditMe },
       ];
 
   return (

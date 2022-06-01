@@ -35,7 +35,7 @@ const EditCar = () => {
   };
 
   return (
-    <MainLayout adminOnly className="mx-auto max-w-[320px]">
+    <MainLayout role="admin" className="mx-auto max-w-[320px]">
       <CarForm
         fields={car}
         onInputChange={onInputChange}

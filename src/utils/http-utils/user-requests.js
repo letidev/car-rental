@@ -9,7 +9,7 @@ export const getLoggedUser = () => {
 
 export const getIsAdmin = () => {
   const user = getLoggedUser();
-  return user.role === "admin";
+  return user?.role === "admin";
 };
 
 export const logout = () => {

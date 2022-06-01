@@ -1,9 +1,18 @@
 import React from "react";
-import { AdminGuard, AuthenticatedGuard } from "../../utils/guards";
+import { AdminGuard, AuthenticatedGuard, UserGuard } from "../../utils/guards";
 import { Header } from "./header";
 
-const MainLayout = ({ children, className, adminOnly = false }) => {
-  const Guard = adminOnly ? AdminGuard : AuthenticatedGuard;
+const MainLayout = ({ children, className, role = "" }) => {
+  let Guard = AuthenticatedGuard;
+
+  if (role === "admin") {
+    Guard = AdminGuard;
+  }
+
+  if (role === "user") {
+    Guard = UserGuard;
+  }
+
   return (
     <Guard>
       <main>

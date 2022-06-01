@@ -20,7 +20,7 @@ const Users = () => {
   };
 
   return (
-    <MainLayout adminOnly>
+    <MainLayout role="admin">
       <div className="flex flex-row items-center justify-between mb-10">
         <h3 className="text-4xl font-bold w-fit">All users</h3>
         <Link
