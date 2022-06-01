@@ -12,7 +12,7 @@ export const getIsAdmin = () => {
   return user.role === "admin";
 };
 
-export const logout = async () => {
+export const logout = () => {
   localStorage.removeItem(loggedUserKey);
 };
 
