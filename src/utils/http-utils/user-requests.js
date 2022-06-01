@@ -7,6 +7,11 @@ export const getLoggedUser = () => {
   return JSON.parse(localStorage.getItem(loggedUserKey));
 };
 
+export const getIsAdmin = () => {
+  const user = getLoggedUser();
+  return user.role === "admin";
+};
+
 export const logout = async () => {
   localStorage.removeItem(loggedUserKey);
 };

@@ -1,12 +1,11 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getLoggedUser, logout } from "../../../utils/http-utils/user-requests";
+import { getIsAdmin, logout } from "../../../utils/http-utils/user-requests";
 import CarIcon from "../../../assets/car.svg";
 
 const Header = () => {
   const navigate = useNavigate();
-  const user = getLoggedUser();
-  const isAdmin = useMemo(() => user.role === "admin", [user.role]);
+  const isAdmin = getIsAdmin();
 
   const navigation = isAdmin
     ? [
