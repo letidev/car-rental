@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { MainLayout } from "./components/layout";
+import Homepage from "./components/pages/homepage/Homepage";
 import Login from "./components/pages/login";
 import Register from "./components/pages/register";
 
@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
-        <Route exact path="/" element={<MainLayout>the homepage</MainLayout>} />
+        <Route exact path="/" element={<Homepage />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </div>
