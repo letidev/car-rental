@@ -1,40 +1,16 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { MainLayout } from "./components/layout";
 import Login from "./components/login";
 import Register from "./components/register";
-import { AuthenticatedGuard, NonAuthenticatedGuard } from "./utils/guards";
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route
-          exact
-          path="/register"
-          element={
-            <NonAuthenticatedGuard>
-              <Register />
-            </NonAuthenticatedGuard>
-          }
-        ></Route>
-        <Route
-          exact
-          path="/login"
-          element={
-            <NonAuthenticatedGuard>
-              <Login />
-            </NonAuthenticatedGuard>
-          }
-        ></Route>
-        <Route
-          exact
-          path="/"
-          element={
-            <AuthenticatedGuard>
-              <MainLayout>the homepage</MainLayout>
-            </AuthenticatedGuard>
-          }
-        ></Route>
+        <Route exact path="/register" element={<Register />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/" element={<MainLayout>the homepage</MainLayout>} />
+        <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </div>
   );
