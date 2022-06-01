@@ -20,7 +20,7 @@ const Header = () => {
       ];
 
   return (
-    <header className="bg-teal-600">
+    <header className="mb-10 bg-teal-600">
       <nav className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8" aria-label="Top">
         <div className="flex items-center justify-between w-full py-6 border-b border-teal-500 lg:border-none">
           <div className="flex items-center">

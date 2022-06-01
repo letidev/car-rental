@@ -3,7 +3,7 @@ import { MainLayout } from "../../layout";
 
 const Homepage = () => {
   return (
-    <MainLayout className="pt-10">
+    <MainLayout>
       <h1 className="font-bold text-center text-7xl">Car rental</h1>
       <div className="mx-auto mt-5 w-fit">
         <p>
