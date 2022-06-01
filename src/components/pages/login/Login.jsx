@@ -64,7 +64,7 @@ const Login = () => {
           Don't have an account?&nbsp;
           <Link
             to="/register"
-            className="underline cursor-pointer hover:text-teal-600"
+            className="text-teal-800 underline cursor-pointer hover:text-teal-600"
           >
             Sing up here!
           </Link>
