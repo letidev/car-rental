@@ -1,15 +1,17 @@
 import { Navigate } from "react-router-dom";
-import { PATHS } from "../constants";
 import { getLoggedUser } from "../http-utils/user-requests";
+import { PATHS } from "../constants";
 
-const NonAuthenticatedGuard = ({ children }) => {
+const AdminGuard = ({ children }) => {
   const user = getLoggedUser();
 
-  if (user) {
+  if (!user) {
+    return <Navigate to={PATHS.Login} />;
+  } else if (user && user.role !== "admin") {
     return <Navigate to={PATHS.Home} />;
   }
 
   return children;
 };
 
-export default NonAuthenticatedGuard;
+export default AdminGuard;

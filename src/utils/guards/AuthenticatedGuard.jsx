@@ -1,12 +1,15 @@
 import { Navigate } from "react-router-dom";
+import { PATHS } from "../constants";
 import { getLoggedUser } from "../http-utils/user-requests";
 
-export const AuthenticatedGuard = ({ children }) => {
+const AuthenticatedGuard = ({ children }) => {
   const user = getLoggedUser();
 
   if (!user) {
-    return <Navigate to="/login" />;
+    return <Navigate to={PATHS.Login} />;
   }
 
   return children;
 };
+
+export default AuthenticatedGuard;
