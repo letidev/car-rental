@@ -4,7 +4,7 @@ const apiUrl = "http://localhost:3005/users";
 const loggedUserKey = "loggedUser";
 
 export const getLoggedUser = () => {
-  return JSON.parse(localStorage.getItem(loggedUserKey));
+  return JSON.parse(sessionStorage.getItem(loggedUserKey));
 };
 
 export const getIsAdmin = () => {
@@ -13,7 +13,7 @@ export const getIsAdmin = () => {
 };
 
 export const logout = () => {
-  localStorage.removeItem(loggedUserKey);
+  sessionStorage.removeItem(loggedUserKey);
 };
 
 export const getAllUsersWithoutAdmin = () => {
@@ -65,7 +65,7 @@ export const login = async (user) => {
 
   const { password, ...userWithoutPassword } = foundUser;
 
-  localStorage.setItem(loggedUserKey, JSON.stringify(userWithoutPassword));
+  sessionStorage.setItem(loggedUserKey, JSON.stringify(userWithoutPassword));
 
   return foundUser;
 };
