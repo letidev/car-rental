@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NonAuthenticatedGuard } from "../../../utils/guards";
 import { registerUser } from "../../../utils/http-utils/user-requests";
-import TextInput from "../../common/inputs/TextInput";
+import { TextInput } from "../../common/inputs";
 import { BasicLayout } from "../../layout";
 
 const Register = () => {
