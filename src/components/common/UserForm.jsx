@@ -9,6 +9,8 @@ const UserForm = ({
   isRegister,
   heading,
   error,
+  isEditMe,
+  passwordError,
 }) => {
   return (
     <div>
@@ -57,6 +59,29 @@ const UserForm = ({
             label="Password"
             required
           />
+        )}
+        {isEditMe && (
+          <>
+            <TextInput
+              value={fields.oldPassword}
+              onChange={onInputChange}
+              type="password"
+              name="oldPassword"
+              id="oldPassword"
+              label="Old Password"
+            />
+            <TextInput
+              value={fields.newPassword}
+              onChange={onInputChange}
+              type="password"
+              name="newPassword"
+              id="newPassword"
+              label="New Password"
+            />
+            <div className="mb-2 font-semibold text-red-500">
+              {passwordError}
+            </div>
+          </>
         )}
         <SubmitButton text={ctaText} />
       </form>
