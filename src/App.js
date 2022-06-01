@@ -7,8 +7,8 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route exact path="/register" element={<Register />} />
-        <Route exact path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route exact path="/" element={<Homepage />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
