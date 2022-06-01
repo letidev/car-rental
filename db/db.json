@@ -17,6 +17,17 @@
       "id": 2
     }
   ],
-  "cars": [],
+  "cars": [
+    {
+      "brand": "Honda",
+      "model": "Civic",
+      "buildYear": "2019",
+      "vehicleType": "economy",
+      "fuelType": "petrol",
+      "numberOfSeats": "5",
+      "pricePerDay": "15",
+      "id": 1
+    }
+  ],
   "rents": []
 }

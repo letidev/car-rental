@@ -16,19 +16,19 @@ export const logout = async () => {
   localStorage.removeItem(loggedUserKey);
 };
 
-export const getAllUsers = () => {
+export const getAllUsers = async () => {
   return axios.get(apiUrl);
 };
 
-export const getUserById = (id) => {
+export const getUserById = async (id) => {
   return axios.get(`${apiUrl}/${id}`);
 };
 
-export const deleteUser = (id) => {
+export const deleteUser = async (id) => {
   return axios.delete(`${apiUrl}/${id}`);
 };
 
-export const saveUser = (user) => {
+export const saveUser = async (user) => {
   if (user?.id) {
     return axios.put(`${apiUrl}/${user.id}`, user);
   }

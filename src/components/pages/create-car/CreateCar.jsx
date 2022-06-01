@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { FuelTypes, VehicleTypes } from "../../../utils/constants";
+import { useNavigate } from "react-router-dom";
+import { FuelTypes, PATHS, VehicleTypes } from "../../../utils/constants";
+import { createCar } from "../../../utils/http-utils/cars-requests";
 import { CarForm } from "../../common";
 import { MainLayout } from "../../layout";
 
 const CreateCar = () => {
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
   const [fields, setFields] = useState({
     brand: "",
     model: "",
@@ -24,15 +28,20 @@ const CreateCar = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    console.log(fields);
+    createCar(fields)
+      .then(() => {
+        navigate(PATHS.Cars);
+      })
+      .catch((e) => setError(e.message));
   };
 
   return (
-    <MainLayout adminOnly>
+    <MainLayout adminOnly className="mx-auto max-w-[320px]">
       <CarForm
         fields={fields}
         onSubmit={onSubmit}
         onInputChange={onInputChange}
+        error={error}
       />
     </MainLayout>
   );
