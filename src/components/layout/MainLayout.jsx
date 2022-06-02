@@ -15,9 +15,9 @@ const MainLayout = ({ children, className, role = "" }) => {
 
   return (
     <Guard>
-      <main>
+      <main className="flex flex-col min-h-screen">
         <Header />
-        <div className="px-4 pb-10 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
+        <div className="flex-grow w-full px-4 pb-10 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
           <div className={className}>{children}</div>
         </div>
         <div className="bg-teal-600">
