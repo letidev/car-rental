@@ -16,6 +16,7 @@ const CreateCar = () => {
     fuelType: FuelTypes.PETROL,
     numberOfSeats: "",
     pricePerDay: "",
+    imageUrl: `https://picsum.photos/seed/${Math.random()}/200`,
   });
 
   const onInputChange = (e) => {

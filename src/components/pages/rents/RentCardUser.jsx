@@ -10,6 +10,7 @@ const RentCardUser = ({ rent }) => {
 
   return (
     <div className="flex flex-col gap-3 p-5 border border-teal-400 rounded-xl w-fit">
+      <img src={car.imageUrl} alt="Car" />
       <div>Car: {`${car.brand} ${car.model}, ${car.buildYear}`}</div>
       <div>Price per day: {car.pricePerDay}</div>
       <div>
