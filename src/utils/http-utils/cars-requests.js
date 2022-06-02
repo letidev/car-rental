@@ -1,6 +1,4 @@
 import axios from "axios";
-import moment from "moment";
-import { getAllRents } from "./rents-requests";
 
 const apiUrl = "http://localhost:3005/cars";
 
@@ -22,20 +20,4 @@ export const getAllCars = () => {
 
 export const deleteCar = (id) => {
   return axios.delete(`${apiUrl}/${id}`);
-};
-
-// business logic requests
-export const getFreeCars = async () => {
-  const cars = (await getAllCars()).data;
-  const rents = (await getAllRents()).data;
-
-  const freeCars = cars.filter((car) => {
-    const isTaken = rents.some(
-      (rent) =>
-        rent.carId === car.id && moment().isBetween(rent.rentFrom, rent.rentTo)
-    );
-    return !isTaken;
-  });
-
-  return freeCars;
 };
