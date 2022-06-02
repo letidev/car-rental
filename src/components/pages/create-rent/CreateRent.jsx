@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { getFreeCars } from "../../../utils/http-utils/cars-requests";
 import { MainLayout } from "../../layout";
 import CarCard from "../cars/CarCard";
@@ -16,6 +16,8 @@ const CreateRent = () => {
   const navigate = useNavigate();
   const [freeCars, setFreeCars] = useState([]);
   const [isUserVip, setIsUserVip] = useState(false);
+  const [dateError, setDateError] = useState("");
+  const [carError, setCarError] = useState("");
   const [rent, setRent] = useState({
     userId: getLoggedUser().id,
     carId: -1,
@@ -26,21 +28,18 @@ const CreateRent = () => {
     discount: 0,
   });
 
-  const updateCarId = (id) => {
-    setRent((prev) => ({
-      ...prev,
-      carId: id,
-    }));
-  };
+  // use effect that initializes the form
+  useEffect(() => {
+    getFreeCars().then((response) => {
+      setFreeCars(response);
+    });
 
-  const updatePricePerDay = (price) => {
-    setRent((prev) => ({
-      ...prev,
-      pricePerDay: price,
-    }));
-  };
+    getIsUserVip(getLoggedUser().id).then((response) => setIsUserVip(response));
+  }, []);
 
-  const calculatePrice = () => {
+  // callback that recalculates the price each time
+  // a dependency changes
+  const calculatePrice = useCallback(() => {
     let discount = 0;
     const dateRange =
       moment(rent.rentTo).diff(moment(rent.rentFrom), "days") + 1;
@@ -65,22 +64,26 @@ const CreateRent = () => {
       discount,
       price,
     }));
-  };
-
-  useEffect(() => {
-    getFreeCars().then((response) => {
-      setFreeCars(response);
-      updateCarId(response[0].id);
-      updatePricePerDay(response[0].pricePerDay);
-    });
-
-    getIsUserVip(getLoggedUser().id).then((response) => setIsUserVip(response));
-  }, []);
+  }, [rent.rentFrom, rent.rentTo, rent.pricePerDay, isUserVip]);
 
   useEffect(() => {
     calculatePrice();
-  }, [rent.rentFrom, rent.rentTo, rent.pricePerDay]);
+  }, [calculatePrice]);
 
+  // use effects for validation errors
+  useEffect(() => {
+    if (moment(rent.rentTo).isBefore(moment(rent.rentFrom))) {
+      setDateError("Rent to date cannot be before rent from date.");
+    } else {
+      setDateError("");
+    }
+  }, [rent.rentFrom, rent.rentTo]);
+
+  useEffect(() => {
+    setCarError("");
+  }, [rent.carId]);
+
+  // form functionality methods
   const onInputChange = (e) => {
     setRent((prev) => ({
       ...prev,
@@ -90,6 +93,15 @@ const CreateRent = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    if (dateError) {
+      return;
+    }
+
+    if (rent.carId === -1) {
+      setCarError("You must pick a car");
+      return;
+    }
 
     createRent(rent).then(() => navigate(PATHS.Rents));
   };
@@ -122,6 +134,7 @@ const CreateRent = () => {
             />
           </div>
         </div>
+        <div className="font-semibold text-red-500">{dateError}</div>
         <h3 className="mt-6 mb-4 text-2xl font-medium">Pick a car</h3>
         <div className="flex flex-row flex-wrap gap-6">
           {freeCars.map((car) => (
@@ -129,16 +142,25 @@ const CreateRent = () => {
               car={car}
               key={car.id}
               onClick={() => {
-                updateCarId(car.id);
-                updatePricePerDay(car.pricePerDay);
-                calculatePrice();
+                setRent((prev) => ({
+                  ...prev,
+                  carId: car.id,
+                  pricePerDay: car.pricePerDay,
+                }));
               }}
               selected={rent.carId === car.id}
             />
           ))}
         </div>
+        <div className="font-semibold text-red-500">{carError}</div>
         <div>
           <h3 className="mt-6 mb-4 text-2xl font-medium">Price</h3>
+          {isUserVip && (
+            <div>
+              You have made at least 3 rents in the past 60 days and get a VIP
+              discount!
+            </div>
+          )}
           <div>Discount: {rent.discount}%</div>
           <div>Price: {rent.price}$</div>
         </div>
