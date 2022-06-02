@@ -55,6 +55,26 @@
       "numberOfSeats": "5",
       "pricePerDay": "20",
       "id": 3
+    },
+    {
+      "brand": "Hyundai",
+      "model": "Ionic",
+      "buildYear": "2020",
+      "vehicleType": "economy",
+      "fuelType": "hybrid",
+      "numberOfSeats": "5",
+      "pricePerDay": "25",
+      "id": 4
+    },
+    {
+      "brand": "Tesla",
+      "model": "Model X",
+      "buildYear": "2018",
+      "vehicleType": "economy",
+      "fuelType": "electric",
+      "numberOfSeats": "5",
+      "pricePerDay": "19",
+      "id": 5
     }
   ],
   "rents": [
@@ -67,6 +87,26 @@
       "price": 76,
       "discount": 5,
       "id": 1
+    },
+    {
+      "userId": 3,
+      "carId": 4,
+      "rentFrom": "2022-06-02",
+      "rentTo": "2022-06-07",
+      "pricePerDay": "25",
+      "price": 139.5,
+      "discount": 7,
+      "id": 2
+    },
+    {
+      "userId": 3,
+      "carId": 5,
+      "rentFrom": "2022-06-07",
+      "rentTo": "2022-06-23",
+      "pricePerDay": "19",
+      "price": 290.7,
+      "discount": 10,
+      "id": 3
     }
   ]
 }
