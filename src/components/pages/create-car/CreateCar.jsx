@@ -17,6 +17,7 @@ const CreateCar = () => {
     numberOfSeats: "",
     pricePerDay: "",
     imageUrl: `https://picsum.photos/seed/${Math.random()}/200`,
+    isActive: true,
   });
 
   const onInputChange = (e) => {
