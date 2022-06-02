@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { PATHS } from "../../../utils/constants";
-import { getIsAdmin } from "../../../utils/http-utils/user-requests";
+import { PATHS } from "../../utils/constants";
+import { getIsAdmin } from "../../utils/http-utils/user-requests";
 
 const CarCard = ({ car, onClickDelete, onClick, selected = false }) => {
   const navigate = useNavigate();

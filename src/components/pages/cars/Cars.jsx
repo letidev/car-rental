@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { deleteCar, getAllCars } from "../../../utils/http-utils/cars-requests";
 import { getIsAdmin } from "../../../utils/http-utils/user-requests";
+import { CarCard } from "../../common";
 import { MainLayout } from "../../layout";
-import CarCard from "./CarCard";
 
 const Cars = () => {
   const isAdmin = getIsAdmin();

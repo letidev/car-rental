@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { getFreeCars } from "../../../utils/http-utils/cars-requests";
 import { MainLayout } from "../../layout";
-import CarCard from "../cars/CarCard";
 import moment from "moment";
 import {
   getIsUserVip,
@@ -11,6 +10,7 @@ import { SubmitButton } from "../../common/inputs";
 import { createRent } from "../../../utils/http-utils/rents-requests";
 import { useNavigate } from "react-router-dom";
 import { PATHS } from "../../../utils/constants";
+import { CarCard } from "../../common";
 
 const CreateRent = () => {
   const navigate = useNavigate();
