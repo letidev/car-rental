@@ -11,12 +11,12 @@ const Header = () => {
   const navigation = isAdmin
     ? [
         { name: "Cars", href: PATHS.Cars },
-        { name: "All rents", href: "/rents" },
+        { name: "All rents", href: PATHS.RentsAdmin },
         { name: "All users", href: PATHS.Users },
       ]
     : [
         { name: "Cars", href: PATHS.Cars },
-        { name: "My rents", href: "/rents" },
+        { name: "My rents", href: PATHS.Rents },
         { name: "My Profile", href: PATHS.EditMe },
       ];
 

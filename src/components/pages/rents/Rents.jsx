@@ -27,7 +27,7 @@ const Rents = () => {
       </div>
       <div className="flex flex-row flex-wrap gap-6">
         {rents.map((rent) => (
-          <RentCardUser rent={rent} />
+          <RentCardUser rent={rent} key={rent.id} />
         ))}
       </div>
     </MainLayout>

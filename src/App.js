@@ -8,7 +8,7 @@ import { EditUser } from "./components/pages/edit-user";
 import { Homepage } from "./components/pages/homepage";
 import Login from "./components/pages/login";
 import Register from "./components/pages/register";
-import { Rents } from "./components/pages/rents";
+import { Rents, RentsAdmin } from "./components/pages/rents";
 import { Users } from "./components/pages/users";
 import { PATHS } from "./utils/constants";
 
@@ -30,6 +30,7 @@ function App() {
         <Route path={PATHS.EditMe} element={<EditMe />} />
 
         <Route exact path={PATHS.Rents} element={<Rents />} />
+        <Route path={PATHS.RentsAdmin} element={<RentsAdmin />} />
         <Route path={PATHS.CreateRent} element={<CreateRent />} />
 
         <Route path="*" element={<Navigate replace to={PATHS.Home} />} />

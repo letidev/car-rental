@@ -1,3 +1,4 @@
 import Rents from "./Rents";
+import RentsAdmin from "./RentsAdmin";
 
-export { Rents };
+export { Rents, RentsAdmin };

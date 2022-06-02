@@ -10,6 +10,7 @@ export const PATHS = {
   EditMe: "/users/edit/me",
   Rents: "/rents",
   CreateRent: "/rents/create",
+  RentsAdmin: "/rents/all",
 };
 
 export const VehicleTypes = {
