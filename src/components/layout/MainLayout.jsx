@@ -17,7 +17,7 @@ const MainLayout = ({ children, className, role = "" }) => {
     <Guard>
       <main>
         <Header />
-        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
           <div className={className}>{children}</div>
         </div>
       </main>
