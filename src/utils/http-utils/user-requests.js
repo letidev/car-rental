@@ -11,7 +11,7 @@ export const getIsAdmin = () => {
 };
 
 export const getAllUsersWithoutAdmin = () => {
-  return axios.get(`${apiUrl}?role=user`);
+  return axios.get(`${apiUrl}?isActive=true&role=user`);
 };
 
 const getAllUsers = () => {
