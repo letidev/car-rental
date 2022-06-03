@@ -10,6 +10,11 @@ const UserCard = ({ user, onClickDelete }) => {
       <div>Email: {user.email}</div>
       <div>First Name: {user.firstName}</div>
       <div>Last Name: {user.lastName}</div>
+      <div>
+        <strong className={`${!user.isActive && "text-red-500"}`}>
+          Is Active: <span>{user.isActive.toString()}</span>
+        </strong>
+      </div>
       <button
         className="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
         onClick={() => navigate(`${PATHS.Users}/edit/${user.id}`)}

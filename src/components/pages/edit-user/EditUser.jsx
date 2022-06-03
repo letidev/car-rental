@@ -18,10 +18,17 @@ const EditUser = () => {
   }, [id]);
 
   const onInputChange = (e) => {
-    setUser((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    if (e.target.name === "isActive") {
+      setUser((prev) => ({
+        ...prev,
+        [e.target.name]: e.target.checked,
+      }));
+    } else {
+      setUser((prev) => ({
+        ...prev,
+        [e.target.name]: e.target.value,
+      }));
+    }
   };
 
   const onSubmit = (e) => {
@@ -43,6 +50,7 @@ const EditUser = () => {
         onSubmit={onSubmit}
         heading="Edit user"
         ctaText="Update"
+        isAdmin
       />
     </MainLayout>
   );

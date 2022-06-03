@@ -1,5 +1,5 @@
 import React from "react";
-import { SubmitButton, TextInput } from "./inputs";
+import { Checkbox, SubmitButton, TextInput } from "./inputs";
 
 const UserForm = ({
   fields,
@@ -11,6 +11,7 @@ const UserForm = ({
   error,
   isEditMe,
   passwordError,
+  isAdmin,
 }) => {
   return (
     <div>
@@ -49,6 +50,17 @@ const UserForm = ({
           placeholder="Doe"
           required
         />
+        {isAdmin && (
+          <Checkbox
+            type="checkbox"
+            defaultChecked={fields.isActive}
+            checked={fields.isActive}
+            onChange={onInputChange}
+            name="isActive"
+            id="isActive"
+            label="Is Active"
+          />
+        )}
         {isRegister && (
           <TextInput
             value={fields.password}

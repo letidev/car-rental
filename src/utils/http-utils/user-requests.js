@@ -11,11 +11,11 @@ export const getIsAdmin = () => {
 };
 
 export const getAllUsersWithoutAdmin = () => {
-  return axios.get(`${apiUrl}?isActive=true&role=user`);
+  return axios.get(`${apiUrl}?role=user`);
 };
 
 const getAllUsers = () => {
-  return axios.get(`${apiUrl}?isActive=true`);
+  return axios.get(`${apiUrl}`);
 };
 
 export const getUserById = (id) => {
@@ -58,7 +58,8 @@ export const login = async (user) => {
     (u) => u.email === user.email && u.password === user.password
   );
 
-  if (!foundUser) throw new Error("Invalid username/password");
+  if (!foundUser || (foundUser && foundUser.isActive === false))
+    throw new Error("Invalid username/password");
 
   const { password, ...userWithoutPassword } = foundUser;
 
