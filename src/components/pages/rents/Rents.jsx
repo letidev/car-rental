@@ -26,6 +26,7 @@ const Rents = () => {
         </Link>
       </div>
       <div className="flex flex-row flex-wrap gap-6">
+        {rents?.length === 0 && <div>No rents</div>}
         {rents.map((rent) => (
           <RentCardUser rent={rent} key={rent.id} />
         ))}
