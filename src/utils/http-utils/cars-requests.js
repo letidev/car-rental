@@ -15,7 +15,7 @@ export const getCarById = (id) => {
 };
 
 export const getAllCars = () => {
-  return axios.get(`${apiUrl}?isActive=true`);
+  return axios.get(`${apiUrl}`);
 };
 
 export const deleteCar = async (id) => {

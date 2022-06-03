@@ -18,10 +18,17 @@ const EditCar = () => {
   }, [id]);
 
   const onInputChange = (e) => {
-    setCar((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    if (e.target.name === "isActive") {
+      setCar((prev) => ({
+        ...prev,
+        [e.target.name]: e.target.checked,
+      }));
+    } else {
+      setCar((prev) => ({
+        ...prev,
+        [e.target.name]: e.target.value,
+      }));
+    }
   };
 
   const onSubmit = (e) => {

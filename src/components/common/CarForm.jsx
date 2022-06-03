@@ -1,6 +1,11 @@
 import React from "react";
 import { FuelTypes, VehicleTypes } from "../../utils/constants";
-import { TextInput, RadioInput, SubmitButton } from "../common/inputs";
+import {
+  TextInput,
+  RadioInput,
+  SubmitButton,
+  Checkbox,
+} from "../common/inputs";
 
 const CarForm = ({
   fields,
@@ -105,6 +110,15 @@ const CarForm = ({
           min={5}
           step={0.01}
           required
+        />
+        <Checkbox
+          type="checkbox"
+          defaultChecked={fields.isActive}
+          checked={fields.isActive}
+          onChange={onInputChange}
+          name="isActive"
+          id="isActive"
+          label="Is Active"
         />
         <div className="my-3 font-semibold text-red-500">{error}</div>
         <SubmitButton text={ctaText} />
