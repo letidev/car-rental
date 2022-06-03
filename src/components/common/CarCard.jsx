@@ -14,7 +14,7 @@ const CarCard = ({ car, onClickDelete, onClick, selected = false }) => {
       } ${selected && "bg-teal-50"}`}
       onClick={onClick}
     >
-      <img src={car.imageUrl} alt="Car" />
+      <img src={car.imageUrl} alt="Car" className="rounded-lg" />
       <div>Brand: {car.brand}</div>
       <div>Model: {car.model}</div>
       <div>Year: {car.buildYear}</div>
