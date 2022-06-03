@@ -25,7 +25,7 @@ As entities there are `users`, `cars` and `rents`. The users have two roles - ad
 
 ### Users
 
-Users car register with email and password. There is a constraint for unique emails. Once
+Users can register with email and password. There is a constraint for unique emails. Once
 a user has registered, they can browse all of the cars in the company. They can browse their past rents and make a new car rental.
 
 The users can edit their profile details and change their password.
@@ -47,6 +47,6 @@ There is also business logic for discounts:
 
 ### The admin
 
-The admin can create and edit cars. They can also "delete" them and they are no longer aligible for rent but their details show up in past rents.
+The admin can create and edit cars. They can also "delete" them and they are no longer eligible for rent but their details show up in past rents.
 
-The admin can edit users but only their name and email. The admin can also mark a user as inactive. When that is done, if the said user is currently logged in, upon next page change, they are logged out and redirected to the login page. This is achieved with a custom hook that verifies from the DB the status of the user.
+The admin can edit users but only their name and email. The admin can also mark a user as **inactive**. When that is done, if the said user is currently logged in, upon next page change, they are **logged out and redirected to the login page**. This is achieved with a **custom hook** that verifies from the DB the status of the user.
