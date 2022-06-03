@@ -13,6 +13,7 @@ const Register = () => {
     lastName: "",
     password: "",
     role: "user",
+    isActive: true,
   });
   const [error, setError] = useState("");
 

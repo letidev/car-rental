@@ -5,17 +5,9 @@ import moment from "moment";
 const apiUrl = "http://localhost:3005/users";
 const loggedUserKey = "loggedUser";
 
-export const getLoggedUser = () => {
-  return JSON.parse(sessionStorage.getItem(loggedUserKey));
-};
-
 export const getIsAdmin = () => {
   const user = getLoggedUser();
   return user?.role === "admin";
-};
-
-export const logout = () => {
-  sessionStorage.removeItem(loggedUserKey);
 };
 
 export const getAllUsersWithoutAdmin = () => {
@@ -23,15 +15,17 @@ export const getAllUsersWithoutAdmin = () => {
 };
 
 const getAllUsers = () => {
-  return axios.get(apiUrl);
+  return axios.get(`${apiUrl}?isActive=true`);
 };
 
 export const getUserById = (id) => {
   return axios.get(`${apiUrl}/${id}`);
 };
 
-export const deleteUser = (id) => {
-  return axios.delete(`${apiUrl}/${id}`);
+export const deleteUser = async (id) => {
+  const user = (await getUserById(id)).data;
+
+  return axios.put(`${apiUrl}/${id}`, { ...user, isActive: false });
 };
 
 export const saveUser = (user) => {
@@ -46,6 +40,7 @@ export const saveUser = (user) => {
   return axios.post(apiUrl, { ...user, role: "user" });
 };
 
+// registration and login logic
 export const registerUser = async (user) => {
   const existingUsers = (await axios.get(`${apiUrl}?email=${user.email}`)).data;
 
@@ -70,6 +65,14 @@ export const login = async (user) => {
   sessionStorage.setItem(loggedUserKey, JSON.stringify(userWithoutPassword));
 
   return foundUser;
+};
+
+export const logout = () => {
+  sessionStorage.removeItem(loggedUserKey);
+};
+
+export const getLoggedUser = () => {
+  return JSON.parse(sessionStorage.getItem(loggedUserKey));
 };
 
 //business logic requests
